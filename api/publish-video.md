@@ -26,7 +26,7 @@ Content-Type: application/x-www-form-urlencoded
 | `partition_start_offset` | string | `0` cho file đầu |
 | `partition_end_offset` | string | Số byte cuối chunk, ví dụ `11368` |
 | `composer_dialog_version` | string | `V2` |
-| `video_publisher_action_source` | string | Trống trong lượt thử |
+| `video_publisher_action_source` | string | Có thể để trống |
 | `fb_dtsg`, `jazoest`, `lsd` | string | Giá trị phiên Facebook |
 | `__user`, `__a`, `__req`, `__spin_*`, ... | string | Các trường động khác của request web; giữ nguyên từ Network |
 
@@ -55,7 +55,7 @@ const res = await fetch('https://vupload2.facebook.com/ajax/video/upload/request
 console.log(res.status, await res.text());
 ```
 
-### Response (cấu trúc thực tế)
+### Response
 
 ```json
 {
@@ -72,7 +72,7 @@ console.log(res.status, await res.text());
 }
 ```
 
-*Các ID là placeholder; offset ví dụ thuộc video 11.368 byte. Không sử dụng lại `waterfall_id` của phiên khác.*
+*Các ID và offset phụ thuộc vào file và phiên upload. Không sử dụng lại `waterfall_id` của phiên khác.*
 
 ## 2. Upload dữ liệu file video
 
@@ -81,7 +81,7 @@ POST https://rupload-{region}.up.facebook.com/fb_video/{upload_token}
 Content-Type: binary video data
 ```
 
-Đây là **request truyền byte video thực tế**. Host `rupload-...` và `upload_token` do Facebook chỉ định trong quá trình upload, **không được cố định**.
+Đây là request truyền **dữ liệu byte của video**. Host `rupload-...` và `upload_token` do Facebook chỉ định trong quá trình upload, **không được cố định**.
 
 ### Headers / Payload
 
@@ -135,7 +135,7 @@ const response = await fetch(uploadUrl, {
 console.log(response.status, await response.text());
 ```
 
-### Response (cấu trúc đã quan sát)
+### Response
 
 ```json
 {"dc":"<DATACENTER>","offset":11368}
@@ -164,7 +164,7 @@ Content-Type: application/x-www-form-urlencoded
 | `partition_start_offset` | string | `0` |
 | `partition_end_offset` | string | Số byte cuối, ví dụ `11368` |
 | `start_offset`, `end_offset` | string | Offset của chunk |
-| `upload_speed` | string | Thống kê upload (lượt thử: `0`) |
+| `upload_speed` | string | Tốc độ upload |
 | `fbuploader_video_file_chunk` | string | Chuỗi định danh chunk do Facebook tạo: `index:base64(filename):mime:token` |
 | `composer_dialog_version` | string | `V2` |
 | `fb_dtsg`, `jazoest`, `lsd`, `__user`, ... | string | Giá trị session và các field web lấy từ Network |
@@ -204,7 +204,7 @@ POST https://www.facebook.com/api/graphql/
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**Mutation:** `ComposerStoryCreateMutation` — đã ghi nhận khi đăng video thử nghiệm ở chế độ Chỉ mình tôi.
+**Mutation:** `ComposerStoryCreateMutation`
 
 ### Body Parameters
 
@@ -223,7 +223,7 @@ Content-Type: application/x-www-form-urlencoded
 | `variables.input.client_mutation_id` | string | ID mutation phía client |
 | `fb_dtsg`, `lsd`, `jazoest`, `av`, `__user`, `__spin_*`, ... | string | Field session bổ sung; giữ từ request gốc |
 
-### Ví dụ variables (rút gọn theo đúng đường dẫn thực tế)
+### Payload JSON (rút gọn)
 
 ```json
 {
@@ -241,7 +241,7 @@ Content-Type: application/x-www-form-urlencoded
 }
 ```
 
-JSON trên chỉ ghi phần nghiệp vụ; request thật còn nhiều field khác. **Không xóa các field gốc khi gửi.**
+Giữ nguyên các field bổ sung của request khi gửi.
 
 ### Example Code — JavaScript Console
 
