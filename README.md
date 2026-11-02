@@ -1,18 +1,14 @@
 # Facebook API 2027
 
-Tài liệu API Facebook Web **đã bắt request thực tế trên Chrome 9223 (02/11/2026)**. Ví dụ JavaScript là mã `fetch()` **dán trực tiếp trong Console trình duyệt**, không phải Node.js.
+Tài liệu API Facebook Web đã bắt request thực tế trên Chrome 9223 (02/11/2026).
 
-## API
+## DANH SÁCH API
 
-| API | Method | Endpoint | Tài liệu |
-| --- | --- | --- | --- |
-| Khởi tạo upload video | POST | `vupload2.facebook.com/ajax/video/upload/requests/start/` | [Upload Start](api/upload-start.md) |
-| Gửi dữ liệu file video | POST | `rupload-{region}.up.facebook.com/fb_video/{upload_token}` | [Upload Binary](api/upload-binary.md) |
-| Xác nhận dữ liệu video | POST | `vupload2.facebook.com/ajax/video/upload/requests/receive/` | [Upload Receive](api/upload-receive.md) |
-| Đăng video lên trang cá nhân | POST | `www.facebook.com/api/graphql/` — `ComposerStoryCreateMutation` | [Publish Video](api/publish-video.md) |
-| Chuyển bài/video vào thùng rác | POST | `www.facebook.com/api/graphql/` — `useCometTrashPostMutation` | [Trash Post](api/delete-post.md) |
-| Xóa vĩnh viễn bài/video | POST | `www.facebook.com/api/graphql/` — `CometActivityLogBulkActionMutation` | [Permanent Delete](api/delete-permanent.md) |
+| API | Endpoint chính | Tài liệu |
+| --- | --- | --- |
+| **Đăng video** | `POST https://www.facebook.com/api/graphql/` + các request upload video | [API ĐĂNG VIDEO](api/publish-video.md) |
+| **Xóa bài viết** | `POST https://www.facebook.com/api/graphql/` (thùng rác / xóa vĩnh viễn) | [API XÓA BÀI VIẾT](api/delete-post.md) |
 
-**Thử nghiệm:** Upload và đăng video 3 giây ở chế độ **Chỉ mình tôi** thành công; đã chuyển vào thùng rác, sau đó xóa vĩnh viễn thành công. Các endpoint là API nội bộ của Facebook, có thể đổi. Những giá trị phiên như `fb_dtsg`, `lsd`, `doc_id`, `waterfall_id`, `video_id`, `story_id` phải lấy từ request/response thực tế, không cố định.
+Mỗi API có **endpoint, method, bảng tham số payload, response, Example Code JavaScript** chạy trong F12 → Console trình duyệt; không dùng Node.js.
 
-**Authentication:** Dán mã vào F12 → Console trên `https://www.facebook.com/`. Trình duyệt tự gửi cookie đã đăng nhập với `credentials: "include"`. Không tự đặt header `Cookie`; không chia sẻ token, cookie hoặc full payload chứa dữ liệu phiên.
+**Đã thử nghiệm:** Upload và đăng video 3 giây ở chế độ Chỉ mình tôi; chuyển vào thùng rác và xóa vĩnh viễn. Facebook Web API là API nội bộ, các trường phiên và `doc_id` có thể thay đổi. Không công khai cookie, token hoặc Form Data chứa thông tin phiên.
