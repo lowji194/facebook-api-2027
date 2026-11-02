@@ -7,7 +7,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ## Endpoint / Query
 
-| Hàng đợi | fb_api_req_friendly_name | doc_id (đã kiểm tra 02/11/2026) |
+| Hàng đợi | fb_api_req_friendly_name | doc_id |
 | --- | --- | --- |
 | Bài chờ duyệt | `GroupsCometPendingPostsPostsSectionQuery` | `29030302419938560` |
 | Nội dung cần xem xét (spam) | `GroupsCometModminReviewFolderRootQuery` | `28881786671481084` |
@@ -136,6 +136,5 @@ Mở `https://www.facebook.com/groups/<GROUP_ID>/pending_posts`, vào F12 → Ne
 }
 ~~~
 
-Với hàng đợi spam, thay `pending_posts_section_stories` bằng `modmin_review_folder`. Response mẫu trên minh họa các trường dữ liệu đã xử lý trong mã nguồn. Có thể lấy media (ảnh/video) từ `attachments`. **Phải có quyền quản trị/kiểm duyệt nhóm**.
+Với hàng đợi spam, thay `pending_posts_section_stories` bằng `modmin_review_folder`. Dữ liệu media (ảnh/video) có thể nằm trong `attachments`. Yêu cầu quyền quản trị hoặc kiểm duyệt nhóm.
 
-**Kiểm thử chỉ đọc:** Đã chạy thành công hai query trên nhóm cấu hình của `/opt/facebook-moderator` ngày 02/11/2026; kết quả hiện có **0 bài** ở cả hai hàng đợi. Không có bài nào bị thay đổi.
