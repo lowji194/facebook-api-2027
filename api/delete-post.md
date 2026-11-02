@@ -9,7 +9,7 @@ POST https://www.facebook.com/api/graphql/
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**Mutation:** `useCometTrashPostMutation` — đã ghi nhận khi chuyển video thử nghiệm vào thùng rác.
+**Mutation:** `useCometTrashPostMutation`
 
 ### Body Parameters
 
@@ -24,7 +24,7 @@ Content-Type: application/x-www-form-urlencoded
 | `variables.input.client_mutation_id` | string | ID mutation phía client |
 | `fb_dtsg`, `lsd`, `jazoest`, `av`, `__user`, ... | string | Field session; lấy từ Network |
 
-### Ví dụ variables (cấu trúc thực tế)
+### Payload JSON
 
 ```json
 {
@@ -72,7 +72,7 @@ POST https://www.facebook.com/api/graphql/
 Content-Type: application/x-www-form-urlencoded
 ```
 
-**Mutation:** `CometActivityLogBulkActionMutation` — bắt được khi **xóa vĩnh viễn video thử nghiệm khỏi Thùng rác** trong Nhật ký hoạt động.
+**Mutation:** `CometActivityLogBulkActionMutation`
 
 ### Body Parameters
 
@@ -89,7 +89,7 @@ Content-Type: application/x-www-form-urlencoded
 | `variables.input.client_mutation_id` | string | ID mutation phía client |
 | `fb_dtsg`, `lsd`, `jazoest`, `__user`, ... | string | Tham số phiên, giữ từ Network |
 
-### Payload JSON (đúng cấu trúc đã bắt)
+### Payload JSON
 
 ```json
 {
