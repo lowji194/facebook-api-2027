@@ -34,20 +34,25 @@ const file = await new Promise(resolve => {
   input.onchange = () => resolve(input.files[0]); input.click();
 });
 const uploadUrl = prompt('URL rupload/fb_video thực tế:');
-const videoId = prompt('video_id từ response upload start:');
+const mediaId = prompt('Header product_media_id từ Network:');
+const chunkId = prompt('Header id từ Network:');
+const sessionId = prompt('Header composer_session_id từ Network:');
+const entityName = prompt('Header x-entity-name từ Network:');
 
 const response = await fetch(uploadUrl, {
   method: 'POST', credentials: 'include',
   headers: {
-    'id': videoId,
-    'product_media_id': videoId,
+    'id': chunkId,
+    'product_media_id': mediaId,
+    'composer_session_id': sessionId,
+    'x-entity-name': entityName,
     'x-entity-type': file.type || 'video/mp4',
     'x-entity-length': String(file.size),
     'x-total-asset-size': String(file.size),
     'start_offset': '0',
     'end_offset': String(file.size),
-    // Điền đúng offset, composer_session_id, x-entity-name
-    // cùng header bổ sung từ request Network của phiên hiện tại.
+    'offset': prompt('Header offset từ Network:'),
+    // Giữ thêm các header khác nếu có trong Network.
   },
   body: file
 });
