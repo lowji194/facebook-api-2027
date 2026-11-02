@@ -6,6 +6,8 @@ API Facebook Web hoạt động qua phiên đăng nhập trên trình duyệt. �
 
 - [ĐĂNG VIDEO](api/publish-video.md)
 - [XÓA BÀI VIẾT](api/delete-post.md)
+- [QUÉT BÀI CHỜ DUYỆT NHÓM](api/scan-pending-group-posts.md)
+- [DUYỆT BÀI NHÓM](api/moderate-group-posts.md)
 
 ## Donate ☕
 
