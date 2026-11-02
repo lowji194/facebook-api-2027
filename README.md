@@ -1,6 +1,6 @@
 # Facebook API 2027
 
-API Facebook Web hoạt động qua phiên đăng nhập trên trình duyệt. Đăng video gồm **upload file → xác nhận upload → đăng bài**; xóa bài viết hỗ trợ **chuyển vào thùng rác hoặc xóa vĩnh viễn**. Các ví dụ JavaScript chạy trực tiếp trong **F12 → Console**.
+Bộ tài liệu API sử dụng giao thức **HTTPS**, gửi request trực tiếp tới các endpoint Facebook (chủ yếu bằng phương thức **POST**). Xác thực dựa trên **cookie phiên đăng nhập** và các tham số phiên như `fb_dtsg`, `lsd`; payload thường được mã hóa dạng `application/x-www-form-urlencoded`, trong đó `variables` chứa dữ liệu JSON. Endpoint và tham số có thể thay đổi theo phiên bản Facebook.
 
 ## DANH SÁCH API
 
