@@ -1,28 +1,28 @@
 # API xóa bài viết / video (chuyển vào thùng rác)
 
-\`\`\`http
+```http
 POST https://www.facebook.com/api/graphql/
 Content-Type: application/x-www-form-urlencoded
-\`\`\`
+```
 
-**Mutation:** \`useCometTrashPostMutation\` — đã ghi nhận khi chuyển video thử nghiệm vào thùng rác.
+**Mutation:** `useCometTrashPostMutation` — đã ghi nhận khi chuyển video thử nghiệm vào thùng rác.
 
 ## Body Parameters
 
 | Parameter | Type | Value / Ý nghĩa |
 | --- | --- | --- |
-| \`fb_api_req_friendly_name\` | string | \`useCometTrashPostMutation\` |
-| \`fb_api_caller_class\` | string | \`RelayModern\` |
-| \`doc_id\` | string | ID mutation từ Network hiện tại |
-| \`variables.input.story_id\` | string | **Story ID** bài/video cần xóa (không nhất thiết giống video_id) |
-| \`variables.input.story_location\` | string | Nguồn hiển thị bài viết, theo request gốc |
-| \`variables.input.actor_id\` | string | UID người thực hiện |
-| \`variables.input.client_mutation_id\` | string | ID mutation phía client |
-| \`fb_dtsg\`, \`lsd\`, \`jazoest\`, \`av\`, \`__user\`, ... | string | Field session; lấy từ Network |
+| `fb_api_req_friendly_name` | string | `useCometTrashPostMutation` |
+| `fb_api_caller_class` | string | `RelayModern` |
+| `doc_id` | string | ID mutation từ Network hiện tại |
+| `variables.input.story_id` | string | **Story ID** bài/video cần xóa (không nhất thiết giống video_id) |
+| `variables.input.story_location` | string | Nguồn hiển thị bài viết, theo request gốc |
+| `variables.input.actor_id` | string | UID người thực hiện |
+| `variables.input.client_mutation_id` | string | ID mutation phía client |
+| `fb_dtsg`, `lsd`, `jazoest`, `av`, `__user`, ... | string | Field session; lấy từ Network |
 
 ## Ví dụ variables (cấu trúc thực tế)
 
-\`\`\`json
+```json
 {
   "input": {
     "story_id": "<STORY_ID>",
@@ -31,11 +31,11 @@ Content-Type: application/x-www-form-urlencoded
     "client_mutation_id": "<MUTATION_ID>"
   }
 }
-\`\`\`
+```
 
 ## Example Code — JavaScript Console
 
-\`\`\`javascript
+```javascript
 // Lấy Form Data đã ghi trong Network của useCometTrashPostMutation.
 const payload = new URLSearchParams(prompt('Form Data delete:'));
 if (payload.get('fb_api_req_friendly_name') !== 'useCometTrashPostMutation')
@@ -53,10 +53,10 @@ if (confirm('Chuyển bài/video này vào thùng rác?')) {
   });
   console.log(response.status, await response.text());
 }
-\`\`\`
+```
 
 ## Response
 
-Trả JSON GraphQL \`data\` hoặc \`errors\`; kiểm tra bài không còn xuất hiện trên trang cá nhân.
+Trả JSON GraphQL `data` hoặc `errors`; kiểm tra bài không còn xuất hiện trên trang cá nhân.
 
 **Lưu ý:** Đây là API **chuyển vào thùng rác**, không phải xóa vĩnh viễn. Facebook cho biết mục trong thùng rác tự động bị xóa sau **30 ngày**.
