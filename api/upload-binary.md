@@ -1,31 +1,31 @@
 # API tải dữ liệu file video
 
-\`\`\`http
+```http
 POST https://rupload-{region}.up.facebook.com/fb_video/{upload_token}
 Content-Type: binary video data
-\`\`\`
+```
 
-Đây là **request truyền byte video thực tế**. Host \`rupload-...\` và \`upload_token\` do Facebook chỉ định trong quá trình upload, **không được cố định**.
+Đây là **request truyền byte video thực tế**. Host `rupload-...` và `upload_token` do Facebook chỉ định trong quá trình upload, **không được cố định**.
 
 ## Headers / Payload
 
 | Parameter | Type | Value / Ý nghĩa |
 | --- | --- | --- |
 | Request Body | bytes | **Dữ liệu file MP4** hoặc chunk, không phải URL file |
-| \`id\` | string | ID phiên/media từ upload |
-| \`product_media_id\` | string | Media ID được server trả về |
-| \`composer_session_id\` | string | ID phiên trình soạn bài |
-| \`x-entity-type\` | string | \`video/mp4\` |
-| \`x-entity-length\` | string | Số byte chunk |
-| \`x-total-asset-size\` | string | Tổng kích thước file (byte) |
-| \`start_offset\` | string | Byte bắt đầu, ví dụ \`0\` |
-| \`end_offset\` | string | Byte kết thúc, ví dụ \`11368\` |
-| \`offset\` | string | Offset Facebook yêu cầu theo từng request |
-| \`x-entity-name\` | string | Tên entity/file theo request thực tế |
+| `id` | string | ID phiên/media từ upload |
+| `product_media_id` | string | Media ID được server trả về |
+| `composer_session_id` | string | ID phiên trình soạn bài |
+| `x-entity-type` | string | `video/mp4` |
+| `x-entity-length` | string | Số byte chunk |
+| `x-total-asset-size` | string | Tổng kích thước file (byte) |
+| `start_offset` | string | Byte bắt đầu, ví dụ `0` |
+| `end_offset` | string | Byte kết thúc, ví dụ `11368` |
+| `offset` | string | Offset Facebook yêu cầu theo từng request |
+| `x-entity-name` | string | Tên entity/file theo request thực tế |
 
 ## Example Code — JavaScript Console
 
-\`\`\`javascript
+```javascript
 // file: đối tượng File đã chọn từ input[type=file].
 // URL và các header động lấy từ request upload trong Network.
 const file = await new Promise(resolve => {
@@ -52,12 +52,12 @@ const response = await fetch(uploadUrl, {
   body: file
 });
 console.log(response.status, await response.text());
-\`\`\`
+```
 
 ## Response (cấu trúc đã quan sát)
 
-\`\`\`json
+```json
 {"dc":"<DATACENTER>","offset":11368}
-\`\`\`
+```
 
-*Facebook cũng có thể trả về JSON chứa trường \`h\` ở các request khác trong cùng luồng. Truyền file riêng lẻ chưa đủ để xuất bản bài viết.*
+*Facebook cũng có thể trả về JSON chứa trường `h` ở các request khác trong cùng luồng. Truyền file riêng lẻ chưa đủ để xuất bản bài viết.*
