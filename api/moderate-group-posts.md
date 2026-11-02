@@ -7,7 +7,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ## Mutation
 
-| Hàng đợi | Hành động | fb_api_req_friendly_name | doc_id trong mã nguồn |
+| Hàng đợi | Hành động | fb_api_req_friendly_name | doc_id |
 | --- | --- | --- | --- |
 | Chờ duyệt | Duyệt | `GroupsCometApprovePendingStoryMutation` | `28651000911229192` |
 | Chờ duyệt | Từ chối | `GroupsCometDeclinePendingStoryMutation` | `29098726336483292` |
@@ -118,4 +118,3 @@ Dùng Form Data từ **GraphQL request tại trang chờ duyệt** làm mẫu ph
 
 Response GraphQL trả về `data` hoặc `errors`; HTTP 200 chưa chứng minh thành công. **Quét lại hàng đợi** và xác nhận `story_id` đã rời danh sách cần duyệt.
 
-**Nguồn:** `/opt/facebook-moderator/facebook_moderation_graphql.py`. Các mutation và cấu trúc `variables` lấy trực tiếp từ mã đang sử dụng. **Chưa có bài chờ duyệt để thử mutation trực tiếp** trong phiên kiểm tra ngày 02/11/2026, vì vậy không khẳng định các `doc_id` mutation vẫn hoạt động ở phiên mới.
