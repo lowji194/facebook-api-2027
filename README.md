@@ -10,8 +10,9 @@ Tài liệu API Facebook Web **đã bắt request thực tế trên Chrome 9223 
 | Gửi dữ liệu file video | POST | `rupload-{region}.up.facebook.com/fb_video/{upload_token}` | [Upload Binary](api/upload-binary.md) |
 | Xác nhận dữ liệu video | POST | `vupload2.facebook.com/ajax/video/upload/requests/receive/` | [Upload Receive](api/upload-receive.md) |
 | Đăng video lên trang cá nhân | POST | `www.facebook.com/api/graphql/` — `ComposerStoryCreateMutation` | [Publish Video](api/publish-video.md) |
-| Xóa bài/video (vào thùng rác) | POST | `www.facebook.com/api/graphql/` — `useCometTrashPostMutation` | [Delete Post](api/delete-post.md) |
+| Chuyển bài/video vào thùng rác | POST | `www.facebook.com/api/graphql/` — `useCometTrashPostMutation` | [Trash Post](api/delete-post.md) |
+| Xóa vĩnh viễn bài/video | POST | `www.facebook.com/api/graphql/` — `CometActivityLogBulkActionMutation` | [Permanent Delete](api/delete-permanent.md) |
 
-**Thử nghiệm:** Upload và đăng video 3 giây ở chế độ **Chỉ mình tôi** thành công; đã chuyển bài thử nghiệm vào thùng rác. Các endpoint là API nội bộ của Facebook, có thể đổi. Những giá trị phiên như `fb_dtsg`, `lsd`, `doc_id`, `waterfall_id`, `video_id`, `story_id` phải lấy từ request/response thực tế, không cố định.
+**Thử nghiệm:** Upload và đăng video 3 giây ở chế độ **Chỉ mình tôi** thành công; đã chuyển vào thùng rác, sau đó xóa vĩnh viễn thành công. Các endpoint là API nội bộ của Facebook, có thể đổi. Những giá trị phiên như `fb_dtsg`, `lsd`, `doc_id`, `waterfall_id`, `video_id`, `story_id` phải lấy từ request/response thực tế, không cố định.
 
 **Authentication:** Dán mã vào F12 → Console trên `https://www.facebook.com/`. Trình duyệt tự gửi cookie đã đăng nhập với `credentials: "include"`. Không tự đặt header `Cookie`; không chia sẻ token, cookie hoặc full payload chứa dữ liệu phiên.
