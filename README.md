@@ -8,6 +8,21 @@ Bộ tài liệu API sử dụng giao thức **HTTPS**, gửi request trực ti�
 - [XÓA BÀI VIẾT](api/delete-post.md)
 - [QUÉT BÀI CHỜ DUYỆT NHÓM](api/scan-pending-group-posts.md)
 - [DUYỆT BÀI NHÓM](api/moderate-group-posts.md)
+- [TÌM KIẾM NHÓM](api/search-groups.md)
+- [DANH SÁCH NHÓM ĐÃ THAM GIA](api/joined-groups.md)
+- [ĐỌC THÔNG TIN NHÓM](api/group-info.md)
+- [ĐỌC NỘI QUY NHÓM](api/group-rules.md)
+- [QUẢN LÝ THAM GIA NHÓM](api/group-membership.md)
+- [QUÉT YÊU CẦU THAM GIA NHÓM](api/group-member-requests.md)
+- [DUYỆT YÊU CẦU THAM GIA NHÓM](api/approve-group-members.md)
+- [QUÉT BÀI VIẾT TRONG NHÓM](api/group-posts.md)
+- [LẤY BÀI CỦA TÔI ĐANG CHỜ DUYỆT](api/my-pending-posts.md)
+- [ĐĂNG BÀI VIẾT NHÓM (CHỮ / ẢNH)](api/post-to-group.md)
+- [BÌNH LUẬN BÀI VIẾT NHÓM](api/comment-on-post.md)
+- [ĐỌC DANH SÁCH BÌNH LUẬN](api/read-comments.md)
+- [XÓA BÀI TRONG NHÓM](api/delete-group-post.md)
+- [THAY BÀI ĐANG CHỜ DUYỆT](api/replace-pending-post.md)
+- [CẤU HÌNH NHÓM VÀ CÂU HỎI THAM GIA](api/group-admin-settings.md)
 
 ## Donate ☕
 
