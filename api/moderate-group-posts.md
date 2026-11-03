@@ -14,7 +14,7 @@ Content-Type: application/x-www-form-urlencoded
 | Spam | Duyệt | `GroupsCometModminReviewFolderApproveContentMutation` | `9662498830453426` |
 | Spam | Từ chối | `GroupsCometModminReviewFolderDeclineContentMutation` | `30216535437945305` |
 
-## Body Parameters
+## Payload / Parameters
 
 | Parameter | Type | Value / Mô tả |
 | --- | --- | --- |
