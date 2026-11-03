@@ -12,7 +12,7 @@ Content-Type: application/x-www-form-urlencoded
 | Bài chờ duyệt | `GroupsCometPendingPostsPostsSectionQuery` | `29030302419938560` |
 | Nội dung cần xem xét (spam) | `GroupsCometModminReviewFolderRootQuery` | `28881786671481084` |
 
-## Body Parameters
+## Payload / Parameters
 
 | Parameter | Type | Value / Mô tả |
 | --- | --- | --- |
